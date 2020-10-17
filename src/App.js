@@ -1,25 +1,109 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import Admin from './components/Admin/Admin';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+
+import jwt_decode from "jwt-decode";
+import AddService from './components/Admin/AddService/AddService';
+import OrderList from './components/OrderPage/OrderList/OrderList';
+import Order from './components/OrderPage/Order/Order';
+import Review from './components/OrderPage/AddReview/AddReview';
+import MakeAdmin from './components/Admin/MakeAdmin/MakeAdmin';
+
+
+
+export const UserContext = createContext();
+
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  useEffect(()=> {
+    const userData = () => {
+      const token = sessionStorage.getItem('token');
+      if(token){
+        const decodedToken = jwt_decode(token);
+        console.log(decodedToken)
+        const {email, name, picture} = decodedToken;
+        const loggedInData = {email, name, picture};
+        setLoggedInUser(loggedInData);
+      }
+  }
+  userData();
+  },[])
+
+
+  useEffect(()=> {
+    loggedInUser.email && fetch('http://localhost:5000/getAdmin?email='+loggedInUser.email,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data[0]);
+      const adminData = data[0]
+      console.log(adminData)
+      setLoggedInUser({...loggedInUser , adminEmail: adminData?.email})
+    })
+  }, [loggedInUser.email])
+ 
+console.log(loggedInUser)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <div className="App">
+        <Router>
+          <Switch>
+
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+
+            <PrivateRoute path="/Order" >
+              <Order />
+            </PrivateRoute>
+
+            <PrivateRoute path="/OrderList" >
+              <OrderList/>
+            </PrivateRoute>
+
+            <PrivateRoute  path="/review">
+              <Review/>
+            </PrivateRoute>
+
+            <PrivateRoute path="/addService">
+              <AddService/>
+            </PrivateRoute>
+
+            <Route path="/admin">
+              <Admin />
+            </Route>
+
+            <Route path="/addService">
+              <AddService />
+            </Route>
+
+            <Route path="/makeAdmin">
+              <MakeAdmin/>
+            </Route>
+
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+
+      </div>
+    </UserContext.Provider>
   );
 }
 

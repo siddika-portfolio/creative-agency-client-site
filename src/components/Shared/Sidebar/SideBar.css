@@ -1,0 +1,35 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 40px;
+    width: 300px;
+}
+
+.sidebar-option{
+    margin: 40px 0 0 12px;
+}
+
+.sidebar-link{
+    color: #282c34;
+    text-decoration: none !important;
+}
+
+.sidebar-link:hover{
+    color: #279c5e;
+}
+
+.sidebar-link:active{
+   
+    font-weight: 700 ;
+}
+
+.active{
+    color: #009444;
+}
+
+
+.sidebar-link > h6{
+    font-weight: 700 ;
+    margin: 20px 0;
+}

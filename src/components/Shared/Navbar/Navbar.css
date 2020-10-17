@@ -1,0 +1,8 @@
+@media only screen and (max-width: 992px) {
+    ul > li{
+        margin-top: 10px;
+    }
+  }
+  nav img{
+      width:170px;
+  }

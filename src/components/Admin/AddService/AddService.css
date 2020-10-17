@@ -1,0 +1,114 @@
+.form {
+    height: 305px;
+    background-color: white;
+    margin: 10px 30px;
+    display:flex;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.formLeft {
+    margin-right: 20px;
+    width: 50%;
+}
+
+.formLeft > h5{
+    font-weight: bold;
+}
+
+.formLeft > input{
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    outline-width: 0;
+    border: 0.666667px solid #ececec;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+input::placeholder{
+    color: #d8d8d8;
+}
+
+
+.formLeft > textarea{
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 8px;
+    outline-width: 0;
+    border: 0.666667px solid #ececec;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+textarea::placeholder{
+    color: #d8d8d8;
+}
+
+
+
+.formRight{
+    width: 50%;
+}
+
+.formRight > h5{
+    font-weight: bold;
+}
+
+.formRight > input{
+    width: 100%;
+    height: 30px;
+    padding-left: 15px;
+    outline-width: 0;
+    border: 0.666667px solid #ececec;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.uploadFile{
+    position: relative;
+}
+
+.uploadIcon{
+    width: 1.5rem;
+    margin-right: 10px;
+}
+
+.custom-file-input {
+    color: transparent;
+    outline-width: 0;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+visibility: hidden;
+}
+
+#uploadImageText{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #009444;
+    background: #DEFFED;
+    border: 1px solid ;
+    border-radius: 5px;
+    padding: 7px 0px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button{
+    background: #009444;
+    width: 150px;
+    height: 40px;
+    color: white;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    padding: 0 40px;
+    text-align: center;
+}

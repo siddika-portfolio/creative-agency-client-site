@@ -1,0 +1,14 @@
+.header::after{
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 90%;
+    position: absolute;
+    transform: skewY(-9.10deg);
+    transform-origin: 0 100%;
+    z-index: -1;
+    background-color:  #FBD062;
+}
