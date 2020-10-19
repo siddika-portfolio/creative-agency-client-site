@@ -71,22 +71,15 @@ const Footer = () => {
                                         onChange={handleChange} required
                                         rows="4" cols="38"
                                         className="order-text-area footer-text-area"
-                                        style={{ height: " 160px", paddingTop: "15px" }}
                                     />
 
                                 </div>
 
-                                <div className="" style={{ width: " 170px", }}>
+                                <div className="submit">
                                     <input
-                                        className="submit-button "
+                                        className="submit-button btn-dark "
                                         type="submit"
                                         value="Send"
-                                        style={{
-                                            background: "#111430",
-                                            padding: " 0 70px 0 60px",
-                                            width: "170px",
-                                            marginTop: "-10px"
-                                        }}
                                     />
                                 </div>
                             </form>

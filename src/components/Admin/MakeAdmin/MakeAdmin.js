@@ -44,9 +44,6 @@ const MakeAdmin = () => {
                     </div>
                     <div className="rightOption ">
 
-                        {/* {
-                event.success ? <Alert severity="success"> Registration Successful — check it out!</Alert> : event.success = ""
-            } */}
 
                         <form onSubmit={handleSubmit} className=" " action="" >
                             <div className="form">

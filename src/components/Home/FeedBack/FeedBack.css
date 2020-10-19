@@ -3,6 +3,10 @@
     align-items: center;
 }
 
+.card-img img {
+    width: 64px; 
+    height: 64px;
+}
 .card-header-text{
     margin-top: 5px;
     margin-left: 20px;

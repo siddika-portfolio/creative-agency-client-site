@@ -1,17 +1,16 @@
 .slider-section{
     background-color:#111430;
-    height: 80vh;
+    height: 75vh;
 }
 
 .slide{
-   
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 .slide-content img{
-    height: 350px;
+    height: 320px;
     width: 100%;
     display:flex;
     justify-content: center;

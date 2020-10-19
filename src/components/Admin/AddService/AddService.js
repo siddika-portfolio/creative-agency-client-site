@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { UserContext } from '../../../App';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 
 import './AddService.css'
 
 const AddService = () => {
+    const [loggedInUser] = useContext(UserContext);
     const history = useHistory();
 
     const [event, setEvent] = useState({});
@@ -54,15 +56,17 @@ const AddService = () => {
                 </div>
                 <div className="col-md-9">
                     <div className="header-option ml-5">
-                        <h3> Add Service </h3>
+                    <h4 className=" text-brand ">  Add Service </h4>
+                        <div className="d-flex align-items-center pt-3 ml-auto">
+                            <h5 className="text-brand"> {loggedInUser.name} </h5>
+                        </div>
                     </div>
                     <div className="rightOption">
-
                     
                             <form onSubmit={handleSubmit} className="form" action="" >
                                 <div className="formLeft">
                                     <h5>Event Title </h5>
-                                    <input type="text" name="name"
+                                    <input type="text" name="title"
 
                                         placeholder="Enter title" id=""
                                         onBlur={handleBlur}
@@ -84,7 +88,7 @@ const AddService = () => {
                                             className="from-control py-5"
                                             onChange={handleFileChange}
                                         />
-                                        {/* <div id="uploadImageText"> <img className='uploadImage' src={uploadIcon} alt="" /> Upload image </div> */}
+                                       
                                     </div>
 
                                     <div className="ml-auto mr-5" style={{ width: " 140px", }}>
@@ -92,7 +96,6 @@ const AddService = () => {
                                             className="submit-button "
                                             type="submit"
                                             value="Submit"
-
                                         />
                                     </div>
 

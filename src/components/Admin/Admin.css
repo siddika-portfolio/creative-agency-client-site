@@ -14,3 +14,14 @@
     min-height: 90vh;
     flex: 1;
 }
+.service-list{
+    border-radius: 20px;
+    min-height: 150px;
+}
+thead{
+    background: #F5F6FA; 
+    border-radius: 10px;
+     margin: 10px; 
+     color: #686868; 
+     width: 100%; 
+}

@@ -9,3 +9,16 @@
 .footer-form .form-group input, .footer-text-area{
     width: 100% !important;
 }
+.submit{
+    width: 170px;
+}
+.submit-button{
+    background: #111430;
+    padding:  0 70px 0 60px;
+    width: 170px;
+    margin-top: -10px;
+}
+.order-text-area{
+    height: 160px;
+    padding-top: 15px;
+}

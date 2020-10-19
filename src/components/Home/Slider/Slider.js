@@ -35,7 +35,7 @@ const slideData = [
 
 const Slider = () => {
     return (
-        <div className="slider-section my-5 pt-5">
+        <div className="slider-section my-5">
             <div className=" slide container">
                 <div className="text-center py-5">
                     <h2 className=" text-light">Here are some of<span> our works</span></h2>

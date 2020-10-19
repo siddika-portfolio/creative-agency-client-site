@@ -19,7 +19,7 @@ const OrderListCard = ({ orderListItem }) => {
 
 
     return (
-        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4 ">
+        <div className="col col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 ">
             { selectedOrder._id &&
                 <div className="card  service-card py-4">
 

@@ -22,7 +22,7 @@ const Order = () => {
         const formData = new FormData();
         formData.append('file', file);
         formData.append('name', loggedInUser.name);
-        formData.append('email', loggedInUser.email);
+        formData.append('email', info.email);
         formData.append('selectedServiceName', loggedInUser.title);
         formData.append('description', loggedInUser.description);
         formData.append('price', info.price);
@@ -88,7 +88,7 @@ const Order = () => {
                                     required
                                 />
 
-                                <input type="text" name="selectedServiceName"
+                                <input type="text" name="title"
                                     placeholder="selected Service Name " id=""
                                     onChange={handleChange}
                                     defaultValue={loggedInUser.title} required
@@ -122,19 +122,13 @@ const Order = () => {
                                 </div>
                             </div>
 
-                            <div className="" style={{ width: " 170px", }}>
+                            <div className="submit">
                                 <input
                                     className="submit-button "
                                     type="submit"
                                     value="Send"
-                                    style={{
-                                        background: "#111430",
-                                        padding: " 0 60px 0 60px",
-                                        width: "170px"
-                                    }}
                                 />
                             </div>
-
                         </form>
                     </div>
                 </div>

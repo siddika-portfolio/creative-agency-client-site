@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import Sidebar from '../Shared/Sidebar/Sidebar';
 import './Admin.css';
+import ServiceTable from './ServiceTable/ServiceTable';
+
+
 
 
 const Admin = () => {
 
     const [allOrderList, setAllOrderList] = useState([]);
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/all-order-list')
@@ -28,9 +32,9 @@ const Admin = () => {
                     </div>
 
                     <div className="rightOption ">
-                        <div className=" bg-white pt-5 pl-4 pr-4 m-4 " style={{ borderRadius: "20px", minHeight: "150px" }} >
-                            <table className="table table-borderless ">
-                                <thead style={{ background: "#F5F6FA", borderRadius: "10px", margin: "10px", color: "#686868", width: "100%" }} >
+                        <div className="service-list bg-white pt-5 pl-4 pr-4 m-4 " >
+                            <table className="table table-borderLess ">
+                                <thead>
 
                                     <tr >
                                         <td scope="col">Name/Company</td>
@@ -42,24 +46,8 @@ const Admin = () => {
                                 </thead>
 
                                 {
-                                    allOrderList.map(item =>
-                                        <tbody key={item._id}>
-                                            <tr>
-                                                <th scope="row"> {item.name} </th>
-                                                <th > {item.email} </th>
-                                                <th> {item.selectedServiceName} </th>
-                                                <th style={{ fontSize: ".8rem" }}> {item.description} </th>
-
-                                                <div class="">
-                                                    <select name="dropdown" id="status" className="" style={{ border: "none" }}>
-                                                        <option className=" text-danger" value="pending">pending</option>
-                                                        <option className=" text-success" value="Done">Done</option>
-                                                        <option className=" text-warning" value="On going">On going</option>
-                                                    </select>
-                                                </div>
-
-                                            </tr>
-                                        </tbody>
+                                    allOrderList.map(singleOrder =>
+                                        <ServiceTable key={singleOrder._id} singleOrder={singleOrder} />
                                     )
                                 }
                             </table>

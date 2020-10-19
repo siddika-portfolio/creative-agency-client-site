@@ -14,7 +14,7 @@ const HeaderMain = () => {
 
                         <p> Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit. Purus commodo ipsum <br /> duis laoreet maecenas. Feugiat </p>
 
-                        <button className="btn-primary mt-4"> Hire us  </button>
+                        <button className="btn-dark text-light  px-4 mt-4"> Hire us  </button>
                     </div>
                 </div>
                 <div className=" col-sm-8 col-md-5 col-xl-5 pb-5">

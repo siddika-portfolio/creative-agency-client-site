@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 
-import Admin from './components/Admin/Admin';
+
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
@@ -17,6 +17,7 @@ import OrderList from './components/OrderPage/OrderList/OrderList';
 import Order from './components/OrderPage/Order/Order';
 import Review from './components/OrderPage/AddReview/AddReview';
 import MakeAdmin from './components/Admin/MakeAdmin/MakeAdmin';
+import Admin from './components/Admin/Admin';
 
 
 
@@ -56,7 +57,7 @@ function App() {
     })
   }, [loggedInUser.email])
  
-console.log(loggedInUser)
+
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
@@ -80,21 +81,17 @@ console.log(loggedInUser)
               <Review/>
             </PrivateRoute>
 
-            <PrivateRoute path="/addService">
-              <AddService/>
+            <PrivateRoute path="/admin">
+             { loggedInUser.adminEmail && <Admin />}
             </PrivateRoute>
 
-            <Route path="/admin">
-              <Admin />
-            </Route>
+            <PrivateRoute path="/addService">
+             { loggedInUser.adminEmail && <AddService />}
+            </PrivateRoute>
 
-            <Route path="/addService">
-              <AddService />
-            </Route>
-
-            <Route path="/makeAdmin">
-              <MakeAdmin/>
-            </Route>
+            <PrivateRoute path="/makeAdmin">
+              { loggedInUser.adminEmail && <MakeAdmin/>}
+            </PrivateRoute>
 
             <Route path="/">
               <Home />
