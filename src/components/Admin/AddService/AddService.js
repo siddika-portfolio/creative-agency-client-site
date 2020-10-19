@@ -29,7 +29,7 @@ const AddService = () => {
         formData.append('title', event.title);
         formData.append('description', event.description);
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://enigmatic-springs-04841.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })

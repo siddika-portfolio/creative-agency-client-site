@@ -6,7 +6,7 @@ const Services = () => {
     console.log(services)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/getServices', {
+        fetch('https://enigmatic-springs-04841.herokuapp.com/getServices', {
             method: 'GET',
             headers: {'content-type': 'application/json'}
         })

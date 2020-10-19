@@ -1,21 +1,24 @@
 import React, { useContext } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import './ServicesCard.css';
 
 
-const ServicesCard = ({service}) => {
+const ServicesCard = ({ service }) => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-  const handleOrder = ()=> {
-    setLoggedInUser({...loggedInUser, image:service.image, title:service.title, description:service.description, serviceId: service._id  })
+  const handleOrder = () => {
+    setLoggedInUser({ ...loggedInUser, image: service.image, title: service.title, description: service.description, serviceId: service._id })
   }
- 
-    return (
-        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-4 ">
-        <Link className="link-primary" to="/order" onClick={handleOrder}>
-        <div className="card d-flex align-items-center justify-content-center service-card py-4">
 
+  return (
+    <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-4 ">
+      <Link className="link-primary" to="/order" onClick={handleOrder}>
+        <div className="card d-flex align-items-center justify-content-center service-card py-4">
+          {
+            service.length === 0 && <Spinner animation="border" variant="warning" />
+          }
           <div className="card-img" style={{ width: "100px", height: "100px" }} >
             {
               service.image ? <img style={{ width: "100px", height: "100px" }} src={`data:image/png;base64,${service.image.img}`} alt="loading Failed" />
@@ -30,9 +33,9 @@ const ServicesCard = ({service}) => {
           </div>
 
         </div>
-        </Link>
-      </div>
-    );
+      </Link>
+    </div>
+  );
 };
 
 export default ServicesCard;

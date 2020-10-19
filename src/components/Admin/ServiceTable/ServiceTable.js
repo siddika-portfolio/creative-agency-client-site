@@ -6,7 +6,7 @@ const ServiceTable = ({ singleOrder }) => {
    console.log(status)
     const onChangeStatusHandler = (e) => {
         setStatus(e.target.value);
-        fetch('http://localhost:5000/update-status', {
+        fetch('https://enigmatic-springs-04841.herokuapp.com/update-status', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

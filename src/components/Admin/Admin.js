@@ -13,7 +13,7 @@ const Admin = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/all-order-list')
+        fetch('https://enigmatic-springs-04841.herokuapp.com/all-order-list')
             .then(res => res.json())
             .then(data => {
                 setAllOrderList(data)

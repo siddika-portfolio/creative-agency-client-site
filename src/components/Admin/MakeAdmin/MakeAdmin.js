@@ -17,7 +17,7 @@ const MakeAdmin = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://enigmatic-springs-04841.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(adminInfo)

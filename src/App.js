@@ -42,7 +42,7 @@ function App() {
 
 
   useEffect(()=> {
-    loggedInUser.email && fetch('http://localhost:5000/getAdmin?email='+loggedInUser.email,{
+    loggedInUser.email && fetch('https://enigmatic-springs-04841.herokuapp.com/getAdmin?email='+loggedInUser.email,{
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ function App() {
             </PrivateRoute>
 
             <Route path="/">
-              <Home />
+              <Home/>
             </Route>
           </Switch>
         </Router>

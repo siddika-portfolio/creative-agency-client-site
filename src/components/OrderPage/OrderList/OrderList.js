@@ -10,7 +10,7 @@ const OrderList = () => {
     console.log(orderList)
 
     useEffect(() => {
-        fetch('http://localhost:5000/getUserOrder', {
+        fetch('https://enigmatic-springs-04841.herokuapp.com/getUserOrder', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
